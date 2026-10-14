@@ -1,0 +1,70 @@
+﻿원래 표기,표준 코드,판단 근거(어느 단어로),확신(높음/낮음)
+10% T/T advance + 90% O/A 90 days,검토 필요,'10% T/T advance' + '90% O/A' — 선수 10%·잔금 90%로 TT_SPLIT_30_70(30/70)과 비율이 다름,낮음
+100% T/T before shipment,TT_ADV,'in advance' / 'before shipment' — 선적 전 송금,높음
+30 DAYS OPEN ACCOUNT,OA,'O/A' / 'OA' / 'Open account',높음
+"30% T/T advance, 70% within 30 days after B/L",TT_SPLIT_30_70,'30% T/T advance' + '70% within 30 days after B/L' — codes 정의 문구와 같음,높음
+60 days O/A ,OA,'O/A' / 'OA' / 'Open account',높음
+Confirmed L/C at sight,LC_SIGHT,'L/C' + 'at sight',높음
+D/A 60,DA,'D/A' / 'Documents against acceptance',높음
+D/A 60 days,DA,'D/A' / 'Documents against acceptance',높음
+D/A 60 days ,DA,'D/A' / 'Documents against acceptance',높음
+D/A 60 DAYS AFTER B/L,DA,'D/A' / 'Documents against acceptance',높음
+  D/A 90,DA,'D/A' / 'Documents against acceptance',높음
+D/A 90,DA,'D/A' / 'Documents against acceptance',높음
+d/a 90,DA,'D/A' / 'Documents against acceptance',높음
+D/A 90 days,DA,'D/A' / 'Documents against acceptance',높음
+D/P,DP,'D/P' — Documents against payment,높음
+D/P at sight,DP,'D/P' — Documents against payment,높음
+d/p at sight,DP,'D/P' — Documents against payment,높음
+DA60,DA,'D/A' / 'Documents against acceptance',높음
+DA90,DA,'D/A' / 'Documents against acceptance',높음
+Documents against acceptance 60 days,DA,'D/A' / 'Documents against acceptance',높음
+DP sight,DP,'D/P' — Documents against payment,높음
+Irrevocable L/C at sight,LC_SIGHT,'L/C' + 'at sight',높음
+irrevocable l/c at sight,LC_SIGHT,'L/C' + 'at sight',높음
+L/C 60 days,LC_USANCE,'L/C' + 일수 — 'usance' 단어는 없지만 일수가 붙어 기한부로 판단,낮음
+L/C 90 days,LC_USANCE,'L/C' + 일수 — 'usance' 단어는 없지만 일수가 붙어 기한부로 판단,낮음
+L/C at sight ,LC_SIGHT,'L/C' + 'at sight',높음
+LC AT SIGHT,LC_SIGHT,'L/C' + 'at sight',높음
+LC at sight,LC_SIGHT,'L/C' + 'at sight',높음
+LC at sight ,LC_SIGHT,'L/C' + 'at sight',높음
+  Net 30 days after receipt of invoice,OA,'Net N' — codes 시트 OA 설명에 'Net N' 포함,높음
+Net 30 days after receipt of invoice,OA,'Net N' — codes 시트 OA 설명에 'Net N' 포함,높음
+Net 60,OA,'Net N' — codes 시트 OA 설명에 'Net N' 포함,높음
+Net 90,OA,'Net N' — codes 시트 OA 설명에 'Net N' 포함,높음
+Net 90 ,OA,'Net N' — codes 시트 OA 설명에 'Net N' 포함,높음
+O/A 30,OA,'O/A' / 'OA' / 'Open account',높음
+  O/A 60,OA,'O/A' / 'OA' / 'Open account',높음
+O/A 60,OA,'O/A' / 'OA' / 'Open account',높음
+O/A 90,OA,'O/A' / 'OA' / 'Open account',높음
+O/A 90 ,OA,'O/A' / 'OA' / 'Open account',높음
+o/a 90,OA,'O/A' / 'OA' / 'Open account',높음
+O/A30,OA,'O/A' / 'OA' / 'Open account',높음
+O/A60,OA,'O/A' / 'OA' / 'Open account',높음
+OA 30 days,OA,'O/A' / 'OA' / 'Open account',높음
+OA 60 DAYS,OA,'O/A' / 'OA' / 'Open account',높음
+OA 60 days,OA,'O/A' / 'OA' / 'Open account',높음
+OA 90 days,OA,'O/A' / 'OA' / 'Open account',높음
+  OA90,OA,'O/A' / 'OA' / 'Open account',높음
+OA90,OA,'O/A' / 'OA' / 'Open account',높음
+Open account 60 days,OA,'O/A' / 'OA' / 'Open account',높음
+OPEN ACCT 90D,OA,'O/A' / 'OA' / 'Open account',높음
+open acct 90d,OA,'O/A' / 'OA' / 'Open account',높음
+T/T 30 days after B/L,OA,'T/T' + 일수 — codes 시트 OA 설명: 'T/T + 일수 표기는 사후송금 = O/A',높음
+T/T 30/70,TT_SPLIT_30_70,'T/T' + 비율 '30/70'(30:70) — 분할 송금 30/70,높음
+T/T 30:70,TT_SPLIT_30_70,'T/T' + 비율 '30/70'(30:70) — 분할 송금 30/70,높음
+T/T 60 DAYS AFTER B/L,OA,'T/T' + 일수 — codes 시트 OA 설명: 'T/T + 일수 표기는 사후송금 = O/A',높음
+T/T 60 days after B/L,OA,'T/T' + 일수 — codes 시트 OA 설명: 'T/T + 일수 표기는 사후송금 = O/A',높음
+t/t 60 days after b/l,OA,'T/T' + 일수 — codes 시트 OA 설명: 'T/T + 일수 표기는 사후송금 = O/A',높음
+T/T 60DAYS,OA,'T/T' + 일수 — codes 시트 OA 설명: 'T/T + 일수 표기는 사후송금 = O/A',높음
+T/T 60days,OA,'T/T' + 일수 — codes 시트 OA 설명: 'T/T + 일수 표기는 사후송금 = O/A',높음
+  T/T 90 days after B/L,OA,'T/T' + 일수 — codes 시트 OA 설명: 'T/T + 일수 표기는 사후송금 = O/A',높음
+T/T 90 DAYS AFTER B/L,OA,'T/T' + 일수 — codes 시트 OA 설명: 'T/T + 일수 표기는 사후송금 = O/A',높음
+T/T 90 days after B/L,OA,'T/T' + 일수 — codes 시트 OA 설명: 'T/T + 일수 표기는 사후송금 = O/A',높음
+t/t 90 days after b/l,OA,'T/T' + 일수 — codes 시트 OA 설명: 'T/T + 일수 표기는 사후송금 = O/A',높음
+T/T in advance,TT_ADV,'in advance' / 'before shipment' — 선적 전 송금,높음
+TT,TT_ADV,담당자한테 물어봄 (사람 판단),높음
+tt,TT_ADV,담당자한테 물어봄 (사람 판단),높음
+Usance L/C 90 days,LC_USANCE,'Usance L/C' — 기한부 신용장,높음
+usance l/c 90 days,LC_USANCE,'Usance L/C' — 기한부 신용장,높음
+신용장 일람불,LC_SIGHT,'신용장'(L/C) + '일람불'(at sight),높음
