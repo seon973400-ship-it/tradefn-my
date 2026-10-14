@@ -1,0 +1,5 @@
+﻿source,url,fetched_at_kst,rows,sha256,note
+FRED DEXKOUS,https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXKOUS&cosd=2023-09-01&coed=2026-09-30,2026-10-01 23:01,801,a820e7716ca084a0e5ff7d54f91d28e7d0dbd7082142a31e41457e2c56559bc5,"마지막 관측일 2026-09-25 (H.10 주간 공표, 이후 날짜는 생성기에서 직전값 채움)"
+FRED DEXUSEU,https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXUSEU&cosd=2023-09-01&coed=2026-09-30,2026-10-01 23:01,801,1c6e85b9b4df0f974a17aab21b472172069dccebd50d94dda7f5c7e3b40df8b8,"마지막 관측일 2026-09-25 (H.10 주간 공표, 이후 날짜는 생성기에서 직전값 채움)"
+FRED DEXCHUS,https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXCHUS&cosd=2023-09-01&coed=2026-09-30,2026-10-01 23:01,801,aa997b77178a39c2d5210e22760d97abff9bd1d04dd16932e2118f70a16bff95,"마지막 관측일 2026-09-25 (H.10 주간 공표, 이후 날짜는 생성기에서 직전값 채움)"
+FRED DEXJPUS,https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXJPUS&cosd=2023-09-01&coed=2026-09-30,2026-10-01 23:01,801,34f4aabf830353fbf136d3dab53e1df80383ccb1f39d411212e3a3399a92bbe8,"마지막 관측일 2026-09-25 (H.10 주간 공표, 이후 날짜는 생성기에서 직전값 채움)"

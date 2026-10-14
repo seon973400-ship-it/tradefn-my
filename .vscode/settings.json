@@ -1,0 +1,10 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+  "python.terminal.activateEnvironment": false,
+  "jupyter.notebookFileRoot": "${workspaceFolder}",
+  "files.encoding": "utf8",
+  "files.autoGuessEncoding": true,
+  "[markdown]": {
+    "editor.wordWrap": "on"
+  }
+}

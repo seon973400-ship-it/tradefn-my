@@ -1,0 +1,68 @@
+# alert_rules.yml — 조기경보 규칙 파일(4일차). 경보 엔진(scripts/ews.py)이 이 파일을 읽는다 — 규칙을 바꾸면 코드가 아니라 이 파일의 PR 한 건이 바뀐다.
+# 원본(labs/)은 그대로 두고, 내 저장소에서는 workbench/day4/rules/alert_rules.yml 로 복사해 내 규칙 1개를 더한다.
+#
+# 한 규칙 = id · tier(P1 긴급 · P2 경고 · P3 주의 · P4 관찰) · when(조건식) · action(권고 문장) [· scope: buyer]
+#   when 은 파이썬/pandas 식이다. 경계값(>= · >)은 여기에 적은 그대로 엔진이 쓴다 — 약관 · 규정 문장과 글자를 맞춘다.
+#   기본(scope 없음) = 인보이스 한 건씩 판정. 쓸 수 있는 값:
+#     dpd(기준일 − 결제기일, 양수 = 연체일수) · notice_days_left((결제기일 + 1개월) − 기준일) · amount_usd · payment_method · ksure_insured ·
+#     terms_change_date · bank_change_request + 그 바이어의 pd_30d · threshold_used · grade · bankruptcy_flag
+#   scope: buyer = 바이어 한 곳씩 판정. d4_start_scored.csv 의 모든 열(current_limit_usd · open_ar_usd · grade …)과
+#     open_invoices(미결 건수) · open_amount_usd(미결 합계) · max_dpd(가장 오래된 연체일수)를 쓸 수 있다.
+#   문장은 모두 '권고' 또는 '요청'으로 쓴다 — 엔진은 아무것도 보내거나 막지 않는다. 결정과 실행은 사람이 한다.
+
+# 기준일 — 원장(d4_open_inv.csv)은 이 날짜 기준의 연습 데이터다. 엔진의 --asof 기본값과 워크플로의 실행 줄은 오늘 날짜가 아니라 이 값을 쓴다.
+asof: "2026-09-30"
+
+stages: {D-3: [-3, -1], D+7: [7, 14], D+15: [15, 29], D+30: [30, null]}
+rules:
+  - id: R-D30-HOLD
+    tier: P2
+    when: "dpd >= 30 and payment_method not in ['LC_SIGHT', 'LC_USANCE', 'TT_ADV']"
+    action: "선적 보류 권고(사람 승인 전)"
+  - id: R-KSURE-NOTICE-SOON
+    tier: P2
+    when: "ksure_insured == 'Y' and dpd > 0 and 0 <= notice_days_left <= 10"
+    action: "사고발생통지 여부 결정 요청"
+  - id: R-KSURE-NOTICE-OVERDUE
+    tier: P2
+    when: "ksure_insured == 'Y' and dpd > 0 and notice_days_left < 0"
+    action: "통지 기한 경과 - 보험사 확인 요청"
+  - id: R-CREDIT-EVENT
+    tier: P1
+    scope: buyer
+    when: "bankruptcy_flag == 1"
+    action: "신용사건 - 신규 선적 중단 · 채권 보전 검토 권고(사람 승인 전)"
+  - id: R-FRAUD-ACCOUNT
+    tier: P1
+    when: "bank_change_request == 'Y'"
+    action: "계좌 변경 요청 - 콜백 확인 전 송금 보류 권고(사람 승인 전)"
+  - id: R-TERMS-CHANGE
+    tier: P3
+    when: "terms_change_date != ''"
+    action: "결제조건 변경 - 보험 영향 확인 요청"
+  - id: R-PD-WATCH
+    tier: P4
+    scope: buyer
+    when: "pd_30d >= threshold_used"
+    action: "연체 가능성 높음 - 모니터링 강화 권고"
+
+  # ── 내 규칙 아이디어(실습 B 01) — 아래에서 하나를 골라 주석(#)을 풀거나, 내 업무에 맞게 새로 쓴다. 괄호 안은 2026-09-30 원장의 기대 건수.
+  # - id: R-NOTICE-7D                      # 통지 기한 7일 이내(보험 가입 건) — 7건
+  #   tier: P2
+  #   when: "ksure_insured == 'Y' and dpd > 0 and 0 <= notice_days_left <= 7"
+  #   action: "통지 기한 7일 이내 - 우선 확인 요청"
+  # - id: R-OLD-180                        # 180일 넘은 미결 — 7건(바이어 4곳)
+  #   tier: P3
+  #   when: "dpd > 180"
+  #   action: "180일 넘은 미결 - 회수 계획 점검 요청"
+  # - id: R-UTIL-80                        # 현행 한도 사용률 80% 이상(신용장 · 선수금 제외) — 44곳 (100% 이상이면 30곳)
+  #   tier: P3
+  #   scope: buyer
+  #   when: "current_limit_usd > 0 and open_ar_usd >= 0.8 * current_limit_usd and payment_method not in ['LC_SIGHT', 'LC_USANCE', 'TT_ADV']"
+  #   action: "한도 사용률 80% 이상 - 한도 점검 요청"
+
+# 선적 보류 목록에 모으는 규칙 · 사고발생통지 기한 = 결제기일 + notice_months 개월
+ship_hold_rules: [R-D30-HOLD, R-CREDIT-EVENT]
+notice_months: 1
+# 등급의 뜻
+tiers: {P1: 즉시, P2: 당일, P3: 이번 주, P4: 관찰}

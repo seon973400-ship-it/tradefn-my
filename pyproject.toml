@@ -1,0 +1,49 @@
+# tradefin-ai-2026 — 수강생 실습 환경 (uv 프로젝트)
+#
+# 처음 한 번:   uv sync            → .venv(Python 3.13)와 아래 패키지를 uv.lock 그대로 설치
+# 실행:         uv run python scripts/hello.py
+# 더 받기:      uv sync --group dash       (5일차 Streamlit 대시보드)
+#               uv sync --group forecast   (3일차 Prophet 환율 예측, 선택)
+#
+# pyproject.toml과 uv.lock은 커밋하고, .venv/는 커밋하지 않는다(.gitignore).
+# 패키지를 더 쓰려면 직접 고치지 말고 `uv add 이름`(Claude Code에게 시켜도 된다) — 두 파일이 함께 바뀐다.
+# 데이터 도구(tools/)의 고정 버전은 requirements.txt, 과정 사이트 빌드는 requirements-docs.txt — 수강생은 쓰지 않는다.
+
+[project]
+name = "tradefin-ai-2026"
+version = "0.1.0"
+description = "생성형 AI 기반 무역 금융 리스크 최적화 과정 — 실습 환경(VS Code + Claude Code + uv)"
+requires-python = ">=3.13,<3.15"
+dependencies = [
+    "pandas>=3.0,<4",          # 3.0부터 Copy-on-Write·str dtype 기본 — 옛 코드는 경고가 난다
+    "openpyxl>=3.1",           # 엑셀 읽기·쓰기
+    "matplotlib>=3.10",        # 차트(한글 글꼴은 tools/fonts/NanumGothic-Regular.ttf)
+    "duckdb>=1.5,<2",          # CSV·엑셀에 바로 SQL (2.0은 과정 중 출시 예정이라 1.x에 묶는다)
+    "pyarrow>=20",             # Parquet·컬럼형 포맷
+    "scikit-learn>=1.7,<2",    # 분류·전처리·평가
+    "lightgbm>=4.6,<5",        # 3일차 부도·연체 예측
+    "shap>=0.50",              # 예측 근거 설명
+    "statsmodels>=0.14",       # 통계 모형·시계열
+    "pulp==3.3.2",             # 4일차 한도 최적화 — 4.0은 API가 바뀌어 3.3.2로 고정
+    "jupyter",                 # VS Code 노트북 + 명령행 도구(nbconvert 등)
+    "ipykernel",               # VS Code가 .venv를 노트북 커널로 쓰게 한다
+    "python-docx>=1.1",        # 보고서(.docx) 만들기
+    "httpx>=0.27",             # 환율·공시 API 호출
+    "docxtpl>=0.19",           # 4일차 보고서 틀(labs/day4/report_template.docx) 채우기 — 수업 중 uv add가 필요 없게
+]
+
+[dependency-groups]
+# uv sync는 기본으로 dev만 함께 설치한다. 아래 두 묶음은 필요한 날에 --group 으로 받는다.
+dev = [
+    "pytest>=8",               # 2·4일차 검사 스크립트
+]
+dash = [
+    "streamlit==1.64.*",       # 5일차 대시보드 — 과정 앱(app/requirements.txt)과 같은 줄
+]
+forecast = [
+    "prophet",                 # 3일차 환율 예측(선택) — 무거운 묶음이라 따로 받는다
+]
+
+[tool.uv]
+# 이 저장소는 패키지로 배포하지 않는다 — 의존성만 설치하고 프로젝트 자체는 설치하지 않는다
+package = false

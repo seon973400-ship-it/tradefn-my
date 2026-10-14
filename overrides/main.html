@@ -1,0 +1,10 @@
+{#- 과정 사이트 테마 덮어쓰기 — Material 9.7의 base.html 위에 얹는다.
+    글꼴 CDN 미리 연결 · 브라우저 주소창 색. 디자인은 docs/stylesheets/tf26.css, 동작은 docs/javascripts/tf26.js -#}
+{% extends "base.html" %}
+{% block extrahead %}
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#0c1b28">
+  <meta name="format-detection" content="telephone=no">
+{% endblock %}

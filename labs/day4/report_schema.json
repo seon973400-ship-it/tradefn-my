@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "narrative.json — 경영진 신용 리스크 리포트의 해석 문장(LLM 출력 형식)",
+  "description": "LLM 은 report_input.json 만 보고 이 칸 이름 그대로 JSON 하나를 낸다. 숫자는 문장에 쓰는 대로 number_trace 에 입력 위치(json_path)와 함께 적는다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["summary", "sections", "actions", "assumptions", "number_trace"],
+  "properties": {
+    "summary": {
+      "description": "요약 3줄 — 이 순서: 위험 1 · 권고 1 · 결정 요청 1",
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"type": "string"}
+    },
+    "sections": {
+      "description": "본문 해석 문장(각 2~3문장). 표의 숫자는 템플릿이 입력에서 직접 채운다.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["portfolio", "limits", "scenarios", "alerts"],
+      "properties": {
+        "portfolio": {"type": "string"},
+        "limits": {"type": "string"},
+        "scenarios": {"type": "string"},
+        "alerts": {"type": "string"}
+      }
+    },
+    "actions": {
+      "description": "결정 요청 표 — 한도 변경 · 선적 보류 · 보험 사고발생통지는 모두 권고(사람 승인 전)",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action", "approver", "status"],
+        "properties": {
+          "action": {"type": "string"},
+          "approver": {"type": "string"},
+          "status": {"type": "string", "enum": ["권고(사람 승인 전)"]}
+        }
+      }
+    },
+    "assumptions": {
+      "description": "가정 · 한계 문장",
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string"}
+    },
+    "number_trace": {
+      "description": "문장 속 숫자마다 한 줄 — number 는 문장에 쓴 그대로, json_path 는 report_input.json 안의 위치(예: alerts.ship_hold, top5[0].pd_30d)",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["number", "json_path"],
+        "properties": {
+          "number": {"type": "string"},
+          "json_path": {"type": "string"}
+        }
+      }
+    }
+  }
+}

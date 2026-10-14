@@ -1,0 +1,12 @@
+# TradeRisk Control Tower — Streamlit Community Cloud용(Advanced settings에서 Python 3.13 선택). 전부 == 고정
+# 모델(models/day3_lgbm.pkl)을 만든 라이브러리와 같은 버전 — 다르면 앱이 .txt 모델로 자동 전환한다.
+# 테스트: uv sync --group dash && uv run pytest app/tests -q
+streamlit==1.64.0
+pandas==3.0.6
+numpy==2.5.3
+scikit-learn==1.9.1
+scipy==1.18.1
+lightgbm==4.7.0
+joblib==1.6.0
+requests==2.34.2
+tzdata==2026.5

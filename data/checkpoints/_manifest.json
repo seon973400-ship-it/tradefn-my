@@ -1,0 +1,239 @@
+{
+  "builder": "tools/build_checkpoints.py",
+  "seed": 20261014,
+  "config_sha256": "6af7773d5c1a3806eb6d3b622c4595292b9228061f97e183e67c563466bcb1de",
+  "files": {
+    "checkpoints/d1_buyers_raw.csv": {
+      "sha256": "d90b0459412ddd578a34c3c996bba453d07e8f91a9d916a66afbbdfce487a55d"
+    },
+    "checkpoints/d1_buyers_raw.xlsx": {
+      "sha256": "77bea92240bfa7182c3dd52adb9feced0596ed4d1254b42dbdd2a95b669f04c9"
+    },
+    "checkpoints/d1_invoices.csv": {
+      "sha256": "d130abd7cbd1cf29d9fb9f8f15abf972e3e4802c78298f6221cd37ea08e84112"
+    },
+    "checkpoints/d1_invoices.xlsx": {
+      "sha256": "eb08e771a90623b9e53964e28634a50d3ad0639b5b22cbda31951ad8c718b90b"
+    },
+    "checkpoints/d2_news.csv": {
+      "sha256": "48a46be63729d05d4ac90c6308d9e9796fae9f87b3c8687a9a333320540687c1"
+    },
+    "checkpoints/d2_start.xlsx": {
+      "sha256": "724ad02fe09fc310fe68eb2932e030d2ada58d80d11e0ccf7625903f0a691b6e"
+    },
+    "checkpoints/d3_end_scored.csv": {
+      "sha256": "ef235663e3fe6baa0b11c029fd50ff19b299e535b31d86a7897aa4fca7df5ca9"
+    },
+    "checkpoints/d3_features_panel.csv": {
+      "sha256": "1d43391bf3e7184e578a8a3a77c640a107208f57995ba9bfa471c70e7912af4e"
+    },
+    "checkpoints/d3_start_features.csv": {
+      "sha256": "0e38135d91034824f72fe3d27099b15132ed44f08f85d85e9b9001f00e827ebf"
+    },
+    "checkpoints/d3_start_scoring.csv": {
+      "sha256": "b50ea79158096a182588b0870d9b0534143a6ce60291a71600d7bb9c70fc14b1"
+    },
+    "checkpoints/d4_limit_model.xlsx": {
+      "sha256": "a4156fbf8ad141a6908b80e03b834aafbb61c3a7d38fb1a0818bb73f4f7802fa"
+    },
+    "checkpoints/d4_open_inv.csv": {
+      "sha256": "5a0b37bced941445452fb60253d62355230161e9eb995012ac21807e13b691e1"
+    },
+    "checkpoints/d4_params.csv": {
+      "sha256": "6f6229c358d6e9450bb95c2ecbae6d97c191b193f8852e39412c2ad23022a884"
+    },
+    "checkpoints/d4_scenarios.csv": {
+      "sha256": "d630406890d1ae92a90400960b9d56e884f4809359df71fac4593c7e31db9ba5"
+    },
+    "checkpoints/d4_start_scored.csv": {
+      "sha256": "8ced73b522126c70dfe783346e390305bde079fe26082a34406ec6bf7204a01b"
+    },
+    "checkpoints/d5_start.csv": {
+      "sha256": "cffabcadf7d78e374358bfd011a1bb5ecac63e53729f76f5c56f7922f0284466"
+    },
+    "checkpoints/fx_krw_daily.csv": {
+      "sha256": "d0960323829ffc999b81e1e7bad3932a36dfd1f80bb0f1face588c38ae34ede7"
+    },
+    "data_dictionary.xlsx": {
+      "sha256": "28f2f8eac4cafae80a6f229b23c01d6d5fdff2afc511ca9017ae2e4ab108dd9b"
+    },
+    "raw/dirty_log.csv": {
+      "sha256": "de4cffe7289051ebb699f04b80ae95b0477d9a9cbe16179e747d297dddfa0442"
+    }
+  },
+  "repo_files": {
+    "labs/day3/fx_forecast_inputs.csv": {
+      "sha256": "657b274c80b8fb2af329a36cd3dfaf8bb61bd6d8a0b4b02a1ddbdef7e360b653"
+    },
+    "labs/day5/TF_AR_Ledger_template.xlsx": {
+      "sha256": "ecbcd46967ea5c5e5a0f4448f2f71fbf976a61c4f6bb68c8cefa409cc4751949"
+    },
+    "rag/goldset_20.csv": {
+      "sha256": "46edf88d7b534e449a26a9f21d43bb3e86b3d2d396885a587474eb5e11aee547"
+    },
+    "rag/eval_sheet_template.xlsx": {
+      "sha256": "926aa068f876932ef2952c8ad0442d32731fc1478487304e8ef15a906e6327df"
+    },
+    "app/sample_data/upload_sample.csv": {
+      "sha256": "7dd1800e653fb1ebc910c28bfa5f70a5b4708cf2f9a614af6af12eaf6f448eed"
+    },
+    "rag/corpus/hanbit_credit_policy.md": {
+      "sha256": "6d032fba132d430b5fecb58a78c5a52e40f7ff8b0c02f39993ae913eacb65511"
+    }
+  },
+  "day4": {
+    "note": "Day4 단계(checkpoints_day4 → solve_day4_lp → build_day4_workbook → build_day4_notebook) 산출물",
+    "config_sha256": "6af7773d5c1a3806eb6d3b622c4595292b9228061f97e183e67c563466bcb1de",
+    "files": {
+      "data/checkpoints/d4_start_scored.csv": {
+        "sha256": "8ced73b522126c70dfe783346e390305bde079fe26082a34406ec6bf7204a01b",
+        "builder": "tools/checkpoints_day4.py"
+      },
+      "data/checkpoints/d4_params.csv": {
+        "sha256": "6f6229c358d6e9450bb95c2ecbae6d97c191b193f8852e39412c2ad23022a884",
+        "builder": "tools/checkpoints_day4.py"
+      },
+      "data/checkpoints/d4_scenarios.csv": {
+        "sha256": "d630406890d1ae92a90400960b9d56e884f4809359df71fac4593c7e31db9ba5",
+        "builder": "tools/checkpoints_day4.py"
+      },
+      "data/checkpoints/d4_open_inv.csv": {
+        "sha256": "5a0b37bced941445452fb60253d62355230161e9eb995012ac21807e13b691e1",
+        "builder": "tools/checkpoints_day4.py"
+      },
+      "labs/day4/d4_limit_model.xlsx": {
+        "sha256": "be7586ba5fd70c81680d813491fc5f2461922732e52ea4bdbcb3815b604b6cbd",
+        "builder": "tools/build_day4_workbook.py"
+      },
+      "data/checkpoints/d4_limit_model.xlsx": {
+        "sha256": "a4156fbf8ad141a6908b80e03b834aafbb61c3a7d38fb1a0818bb73f4f7802fa",
+        "builder": "tools/build_day4_workbook.py"
+      }
+    },
+    "inputs": {
+      "data/checkpoints/d3_end_scored.csv": {
+        "sha256": "ef235663e3fe6baa0b11c029fd50ff19b299e535b31d86a7897aa4fca7df5ca9"
+      }
+    }
+  },
+  "day5": {
+    "builder": "tools/build_day5.py",
+    "asof": "2026-09-30",
+    "limit_source": "Day4 강사 정답본 d4_end_limits.xlsx(limits!proposed_limit = Day4 LP 해)",
+    "bankruptcy_source": "d4_start_scored.csv bankruptcy_flag(Day4와 같은 값)",
+    "d3_end_scored_sha256": "ef235663e3fe6baa0b11c029fd50ff19b299e535b31d86a7897aa4fca7df5ca9"
+  },
+  "day6": {
+    "note": "Day6 해커톤 팩(build_day6_pack.py) — 팩 · 팀 팩 · 카드 ⑤ 2단계 · 템플릿 xlsx",
+    "asof": "2026-09-30",
+    "assign": "고정 배정 — 강사 키트(instructor/PUBLISHING_days2-6.md §6)에만 적는다",
+    "day4_limits": "Day4 강사 정답 lp_solution.csv(proposed_limit)",
+    "files": {
+      "data/checkpoints/d6_crisis_pack.xlsx": {
+        "sha256": "50736492f81646bb723ea5f666e4214dd0b006e5649e128d8e6d38bb0f8691a6",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_card5_stage2.xlsx": {
+        "sha256": "f28731b23e91b6440d142be3999a6c7f4d245658ab28c81f2919a1cebfb03ae3",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_crisis_pack_budget.csv": {
+        "sha256": "3e0710ff349f0f04de472e213b6af0b94ebce5c5578ed630549a1ebdb6f8466f",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_crisis_pack_buyer_changes.csv": {
+        "sha256": "49efd946499412ccad179d10685b1dd17f15227a9f48f7973f83ee759c7d8ece",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_crisis_pack_cards.csv": {
+        "sha256": "6653acd310121f0cf84c842ed20895b18702ac561909ba436ce5586cfee67c64",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_crisis_pack_injects.csv": {
+        "sha256": "c3dade406f9599077067e7277e021f0ff9c13ac8189204dd4187be341d8423ee",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_crisis_pack_invoice_changes.csv": {
+        "sha256": "feaa1475c3e252b1b2cdf42b43467b159c427569553e32c84d3fb42c73183381",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_crisis_pack_limit_realloc.csv": {
+        "sha256": "e889fe52f1c22ea604217665aa9f4400f1bbb200f487fe153dd67a9ddc35c3dd",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_crisis_pack_new_buyer.csv": {
+        "sha256": "9faf2c76720bab21872a39618184c6af343ea875c3f038b39813f6691cf04003",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_crisis_pack_new_buyer_features.csv": {
+        "sha256": "22d6b5c972d66880d00d4ef2f70c3be9a9a126c4fa3552822c7aae12a0ca19d1",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_crisis_pack_scenarios.csv": {
+        "sha256": "1be50d94b2e893e96ae4acb66b044c9c403e80005daee23ff9506d1ec3e5d02c",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_crisis_pack_templates.csv": {
+        "sha256": "07ec025620eabd596ec6959818c9783dcae2b391f0a12a001b483f1c18b018ce",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_teams/team_01.xlsx": {
+        "sha256": "311f2f1cd7293a89c1c22578370e692066c83a7b14232bb56ecd7577f4ec3f92",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_teams/team_02.xlsx": {
+        "sha256": "53b15930f0e2e56bbb473636ab87c8f0a5dc88be2d95400e6e0c5778ae6a9a08",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_teams/team_03.xlsx": {
+        "sha256": "83dd7bbcbd17845d61cea2a8a0b9dc4481b874092c80d518a342e7118c4ceafd",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_teams/team_04.xlsx": {
+        "sha256": "6101326920c9dd156c85413a1e0da8fd95892921e38ddce9bfef05674bb35cc2",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "data/checkpoints/d6_teams/team_05.xlsx": {
+        "sha256": "88ca7455993a3702f99e3516fc2b0173dc571f9b8e398abd0a370a68cab541a4",
+        "builder": "tools/build_day6_pack.py"
+      }
+    },
+    "repo_files": {
+      "labs/day6/judging_rubric.xlsx": {
+        "sha256": "5630bab246e2f1e9312867e95a8c65a43ca8c553513a17c8ab580c6adfc4e5cb",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "labs/day6/judging_rubric.md": {
+        "sha256": "a7c32f745a0a9bc168ffd9ea5856939ca7cb5d31a18acba2dda8c43ef5cf7f0d",
+        "builder": "tools/build_day6_pack.py"
+      },
+      "labs/day6/roi_kpi_template.xlsx": {
+        "sha256": "893e99b7c1d67e6567fb6eff7f4a4d6aac2dc9eaf9270edbdeb65642dc1650ff",
+        "builder": "tools/build_day6_pack.py"
+      }
+    },
+    "inputs": {
+      "data/checkpoints/d4_start_scored.csv": {
+        "sha256": "8ced73b522126c70dfe783346e390305bde079fe26082a34406ec6bf7204a01b"
+      },
+      "data/checkpoints/d4_params.csv": {
+        "sha256": "6f6229c358d6e9450bb95c2ecbae6d97c191b193f8852e39412c2ad23022a884"
+      },
+      "data/checkpoints/d4_scenarios.csv": {
+        "sha256": "d630406890d1ae92a90400960b9d56e884f4809359df71fac4593c7e31db9ba5"
+      },
+      "data/checkpoints/d4_open_inv.csv": {
+        "sha256": "5a0b37bced941445452fb60253d62355230161e9eb995012ac21807e13b691e1"
+      },
+      "data/checkpoints/d5_start.csv": {
+        "sha256": "cffabcadf7d78e374358bfd011a1bb5ecac63e53729f76f5c56f7922f0284466"
+      },
+      "data/checkpoints/d3_start_scoring.csv": {
+        "sha256": "b50ea79158096a182588b0870d9b0534143a6ce60291a71600d7bb9c70fc14b1"
+      },
+      "data/checkpoints/fx_krw_daily.csv": {
+        "sha256": "d0960323829ffc999b81e1e7bad3932a36dfd1f80bb0f1face588c38ae34ede7"
+      }
+    }
+  }
+}

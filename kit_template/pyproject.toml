@@ -1,0 +1,26 @@
+# tradefin-kit-T{조} — 솔루션 킷 환경 (uv 프로젝트)
+#
+# 처음 한 번:   uv sync            → .venv(Python 3.13)와 아래 패키지를 uv.lock 그대로 설치
+# 실행:         uv run python app/pipeline/<스크립트>.py
+#
+# pyproject.toml과 uv.lock은 커밋하고, .venv/는 커밋하지 않는다(.gitignore).
+# 패키지를 더 쓰려면 직접 고치지 말고 `uv add 이름`(Claude Code에게 시켜도 된다) — 두 파일이 함께 바뀐다.
+# 새 폴더에서 `uv sync`부터 다시 돌려 같은 숫자가 나오는지 확인한 것을 README '실행 방법'에 적는다.
+
+[project]
+name = "tradefin-kit"
+version = "0.1.0"
+description = "해커톤 팀 솔루션 킷 — 위기 카드 대응 파이프라인 · SOP · ROI (가상 데이터)"
+requires-python = ">=3.13,<3.15"
+dependencies = [
+    "pandas>=3.0,<4",          # 3.0부터 Copy-on-Write·str dtype 기본
+    "numpy>=2.3",
+    "scipy>=1.16",             # 한도 LP 대조(HiGHS)
+    "pulp==3.3.2",             # 4일차 한도 최적화 — 4.0은 API가 바뀌어 3.3.2로 고정
+    "matplotlib>=3.10",        # 차트(한글은 NanumGothic 글꼴을 지정한다)
+    "openpyxl>=3.1",           # 엑셀(ROI 양식) 읽기·쓰기
+]
+
+[tool.uv]
+# 이 저장소는 패키지로 배포하지 않는다 — 의존성만 설치하고 프로젝트 자체는 설치하지 않는다
+package = false

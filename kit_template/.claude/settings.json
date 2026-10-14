@@ -1,0 +1,6 @@
+{
+  "permissions": {
+    "allow": ["Bash(uv run:*)", "Bash(git diff:*)"],
+    "deny": ["Read(./.env)", "Bash(git push --force:*)"]
+  }
+}

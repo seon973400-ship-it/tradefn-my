@@ -1,0 +1,10 @@
+# 앱 공통 설정(비밀값 없음) — 진입점(app/streamlit_app.py) 옆 .streamlit/ 이라 어느 폴더에서 실행해도 적용된다.
+# 비밀값은 secrets.toml(저장소에 올리지 않음) 또는 Community Cloud의 Secrets 칸에만.
+[server]
+maxUploadSize = 5            # MB — 업로드는 5MB 이하(합성·익명화 데이터만)
+
+[client]
+showErrorDetails = "full"    # 빨간 오류 전문을 복사해 P5-B3로 고친다
+
+[browser]
+gatherUsageStats = false

@@ -1,0 +1,9 @@
+# tradefin-ai-2026 데이터 도구(tools/) 의존성 — 버전 고정(같은 버전이어야 생성 파일 해시가 같다)
+# 검증 환경: Python 3.13.9. Colab(2026.07 런타임)에서는 버전이 달라 해시가 다를 수 있으나 실행은 된다.
+# 사용: python -m venv .venv && .venv/bin/pip install -r requirements.txt
+pandas==3.0.6
+numpy==2.5.3
+openpyxl==3.1.5
+XlsxWriter==3.2.9
+PyYAML==6.0.3
+matplotlib==3.11.2

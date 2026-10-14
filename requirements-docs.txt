@@ -1,0 +1,4 @@
+# 과정 사이트(MkDocs Material) 빌드용 — MkDocs 2.0은 호환성을 깨므로 1.x에 고정
+# 사용: pip install -r requirements-docs.txt
+mkdocs<2
+mkdocs-material==9.7.*

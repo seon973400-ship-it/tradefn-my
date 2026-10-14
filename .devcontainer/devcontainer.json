@@ -1,0 +1,26 @@
+{
+  "name": "tradefin-ai-2026 · Python 3.13 + uv",
+  "image": "mcr.microsoft.com/devcontainers/python:3-3.13",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "containerEnv": {
+    "UV_LINK_MODE": "copy"
+  },
+  "postCreateCommand": "sudo pip install --quiet --root-user-action=ignore uv && uv sync",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+        "claudeCode.initialPermissionMode": "plan",
+        "files.encoding": "utf8",
+        "files.autoGuessEncoding": true
+      }
+    }
+  }
+}

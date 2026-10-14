@@ -1,0 +1,168 @@
+# tradefin-ai-2026 — .gitignore (공개 저장소 기준)
+# 이 폴더에서 `git add -A` 를 해도 정답·원천·비밀값이 공개 저장소에 올라가지 않게 하는 '안전한 기본값'이다.
+# 공개 모델(v4.1): main = 수강생 템플릿(사본의 원본) · 수업 파일은 같은 저장소의 공개 files 브랜치에만 둔다
+#   (tools/get_day_files.py N 과 과정 사이트 '파일 받기'가 그 브랜치의 색인 _index.json을 읽는다 — 시각을 맞춰 push하는 일은 없다).
+# 주의: .gitignore는 줄 끝 주석을 지원하지 않는다 — 설명은 항상 패턴 위 줄에 쓴다.
+# 확인: `git check-ignore -v <경로>` (어느 줄 때문에 빠지는지 보여 준다)
+
+# ── 1. 비밀값·개인 데이터 (영구) ─────────────────────────────────────
+# 이 저장소를 템플릿으로 만든 개인 저장소(workbench/)·팀 저장소에도 그대로 따라간다.
+# 단, GitHub 웹 화면의 'Upload files'는 .gitignore와 관계없이 올린다 — 올리기 전에 파일을 직접 확인한다.
+secrets.toml
+.streamlit/secrets.toml
+.env
+.env.*
+data/private/
+# 어느 폴더든 private/ 폴더와 이름에 _private가 든 파일(자사 자료·익명화 대응표 등)
+private/
+*_private*
+*.local.*
+# 봉인 키 · 개인키(6일차 자동 공개 묶음의 열쇠는 저장소 시크릿에만 둔다)
+RELEASE_KEY*
+release.key
+.release_key*
+*.key
+*.pem
+
+# ── 2. 수업 파일·정답·원천 — main(템플릿)에는 커밋하지 않는다 ──────────────────
+# 수업 파일(다음 날 체크포인트 · 비교 기준 · 강사 모델 · PDF · 6일차 서프라이즈)은 공개 files 브랜치에 있고,
+# 수강생은 `uv run python tools/get_day_files.py N`(또는 사이트 '파일 받기')으로 같은 경로에 받는다.
+# 이 줄들은 그렇게 받은 데이터가 내 커밋 · 새 worktree · Actions 러너에 섞이지 않게 막는다(인쇄본의 '.gitignore로 뺀 데이터').
+# 원천 · 생성기는 10/21 19:00에 files 브랜치로 자동 공개된다(봉인 묶음 r6). 정답지 · 강사 자료는 3절이라 계속 빠진다.
+#
+# 생성기 원천(숨은 등급·부도·시나리오 역할 같은 정답 컬럼과 오염 기록이 들어 있다)
+data/raw/
+# 다음 날 체크포인트(d2_start 등)·비교 기준(dN_end 등) — files 브랜치에서 받는다
+data/checkpoints/d[2-6]_*
+data/checkpoints/d1_end*
+# Day1 정답 차트·표(정제 150개사 피벗 수치) — 사이트 빌드에서도 빠져 있다(mkdocs.yml exclude_docs)
+docs/assets/day1/
+# 오염 주입 계획·시나리오 역할(사기·오탐 등)·정답 문구가 들어 있는 생성기와 설정 — 코드 공개는 과정 종료 뒤
+tools/config.yaml
+tools/generate_data.py
+tools/build_checkpoints.py
+tools/day1_expected.py
+tools/build_day1_template.py
+tools/validate_data.py
+# 뉴스 헤드라인 풀(점수 열 = Day2 감성 점수화 정답)
+tools/news_pool/
+# Day2 워밍업 10건(d2_news.csv의 행) — files 브랜치에서 받는다
+labs/day2/news_warmup_10.txt
+# Day4 체크포인트·정답 생성기(신용사건·전략 바이어 판정, PuLP 참고해·정답 워크북을 만든다) — 코드 공개는 과정 종료 뒤
+# (main에 두는 Day4 파일: labs/day4/의 설계 1쪽 · 속성 테스트 · 스트레스 참고 스크립트 · 경보 규칙 · 워크플로 예시 · 보고서 양식 · 메일 예제 · 프롬프트 — 아래 비교 기준 파일만 files 브랜치)
+tools/checkpoints_day4.py
+tools/solve_day4_lp.py
+tools/build_day4_workbook.py
+tools/validate_day4.py
+# Day4 기대값 테스트 2개(목적함수 · 잠재가격 · EL · 절감액 정답이 든다) — files 브랜치(색인 open_at 10/19 14:45)
+labs/day4/tests/test_limits_expected.py
+labs/day4/tests/test_stress_expected.py
+# Day4 실습 B 15:00 파일 — 경보 테스트(기대 건수) · 참고 엔진 · 렌더 · 숫자 대조 참고 스크립트 — files 브랜치(색인 open_at 10/19 15:00)
+# (입력 JSON data/checkpoints/d4_report_input.json과 버그 카드 d4_params_bug.csv는 위 data/checkpoints/d[2-6]_* 줄이 막는다)
+labs/day4/tests/test_ews_props.py
+labs/day4/ews_example.py
+labs/day4/make_report.py
+labs/day4/check_numbers.py
+# Day3 강사 모델(files 브랜치 — 색인 open_at 10/19 08:30)과 Day2·3 정답 생성기
+models/
+tools/checkpoints_day23.py
+tools/train_day3_model.py
+# Day3 SHAP 표본(B118 · B005 · B085의 pd_30d · 등급 · 사유 — 강사 모델 값) — files 브랜치(색인 open_at 10/16 08:30)
+labs/day3/shap_sample_3buyers.csv
+# Day3 품질 게이트(8교시 시연 6의 수강생판: README · d3-check.yml · check_scored.py) — files 브랜치
+labs/day3/quality_gate/
+# Day5 정답 생성기·검사(신용사건·사기 신호 판정, 충돌 조항 정답표) — 코드 공개는 과정 종료 뒤
+# (공개 저장소에 두는 Day5 파일: rag/(규정 PDF · 골든셋 · 질문 목록 · 평가 시트) · app/ · agents/litellm · labs/day5/(프롬프트 · 요구사항 카드 · 톤 표) · workbench/day5/ 양식 3개.
+#  files 브랜치에서 받는 5일차 파일: d5_start.csv · 앞선 날의 결과(d3_* · d4_*) — 위 data/checkpoints/d[2-6]_* 줄 ·
+#  강사 모델 models/ — 위 models/ 줄 · 완성본 3개(labs/day5/a2_baseline_check.md · b3_fx_check.md · b4_tone_impact.md) — 맨 아래 자동 절이 막는다)
+tools/build_day5.py
+tools/validate_day5.py
+# 생성기 공용 — 수강생 파일 문구 위생(내부 문서 번호 표를 담고 있다)
+tools/tf_public.py
+
+# Day6 해커톤 — 위기 카드 · 인젝트 · 변형 카드는 봉인 묶음으로 files 브랜치에 있다가 정한 시각에 자동으로 풀린다(.github/workflows/d6-release.yml)
+# (카드 ①–⑤ · V1 09:28 · 카드 ⑤ 2단계 11:15 · I-1 11:30 · I-2 13:15 · V2 = 강사 시연용이라 공개하지 않는다)
+# 팀 팩 data/checkpoints/d6_teams/ · 카드 ⑤ 2단계 d6_card5_stage2.xlsx · d6_crisis_pack*는 위 data/checkpoints/d[2-6]_* 줄이 막는다
+# Day6 생성기 · 검사(카드 원문 · 강사 기대값 문구가 들어 있다) — 코드 공개는 과정 종료 뒤
+# (공개 저장소에 두는 Day6 파일: labs/day6/의 안내 · 규칙 · 역할 카드 · 루브릭 · 스탠드업 · 킷 체크리스트 · 양식 · 프롬프트)
+labs/day6/crisis_cards/
+labs/day6/injects/
+labs/day6/variants/
+tools/build_day6_pack.py
+tools/build_day6_answers.py
+tools/build_day6_templates.py
+tools/validate_day6.py
+
+# ── 3. 강사 자료가 실수로 들어왔을 때의 안전망 (영구 — 어떤 경우에도 공개하지 않는다) ──
+instructor/
+answers/
+*_answer.xlsx
+*_expected.md
+*_executed.ipynb
+*dirt_log*
+*dirty_log*
+공개용_*.xlsx
+DEMO_*.xlsx
+demo_backup/
+*.bak
+
+# ── 4. 실행·빌드 산출물 ────────────────────────────────────────────
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+# 로컬 SQLite 파일(5일차 승인 기록 DB receivables.db 등) — 실행할 때마다 생기는 산출물이라 커밋하지 않는다
+*.db
+*.sqlite3
+# 과정 사이트(MkDocs) 빌드 산출물 — 배포는 GitHub Actions가 새로 만든다(USB용 오프라인판 site_offline/ 포함)
+site/
+site_offline/
+# tools/sync_site_assets.py가 만드는 배포용 사본과 '파일 받기' 카드 · 표 조각(사이트 빌드가 files 브랜치 색인에서 다시 만든다)
+docs/downloads/
+docs/_snippets/
+# files 브랜치 작업 트리(강사 PC: git worktree · CI: 두 번째 checkout) — main에 넣지 않는다
+/_files/
+# 봉인 직전 평문 폴더(강사 PC 전용)
+sealed_src/
+# Challenge 노트북을 로컬에서 돌리면 실행한 폴더에 생기는 SEC 응답 캐시(labs/day1/sec_cache/ 등 — 어느 폴더든 뺀다)
+sec_cache/
+# 브라우저 점검 도구 기록
+.gstack/
+
+# 수강생용 슬라이드 PDF — files 브랜치(1–5일차는 처음부터, 6일차는 사전판 → 10/21 18:00 완성판으로 자동 교체)
+handouts/
+
+# K-SURE 약관 본문·발췌는 재배포 금지 — 저장소에 넣지 않는다(D36). 공식 링크는 rag/corpus/README.md
+rag/corpus/*ksure*
+rag/corpus/*약관*
+*ksure_terms*
+
+# ── 5. 수강생 작업 환경 ────────────────────────────────────────────
+# Claude Code worktree(`claude --worktree 이름`)가 브랜치마다 펼치는 작업 폴더 — 사본이라 커밋하지 않는다
+.claude/worktrees/
+# tools/get_day_files.py가 받다가 멈춘 임시 파일
+*.part
+# 엑셀 · 워드가 파일을 연 동안 만드는 잠금 파일(~$파일.xlsx) — 연 채로 커밋해도 섞이지 않게
+~$*
+
+# >>> files 브랜치 전용 경로(자동 — instructor/release/files_build.py가 dayN.yml에서 만든다. 손으로 고치지 않는다)
+labs/day2/credit_notes/CN01_B053_ko.txt
+labs/day2/credit_notes/CN02_B040_en.txt
+labs/day2/credit_notes/credit_note_score.schema.json
+labs/day2/credit_notes/credit_note_v1.md
+labs/day2/d2_excel_check.xlsx
+labs/day2/news_rows_001-050.csv
+labs/day2/news_rows_051-100.csv
+labs/day3/d3_grade_banding_example.xlsx
+labs/day3/d3_grade_example.csv
+labs/day4/d4_cards_check.xlsx
+labs/day5/a2_baseline_check.md
+labs/day5/b3_fx_check.md
+labs/day5/b4_tone_impact.md
+labs/day6/roi_cards/roi_kpi_card1.xlsx
+labs/day6/roi_cards/roi_kpi_card2.xlsx
+labs/day6/roi_cards/roi_kpi_card3.xlsx
+labs/day6/roi_cards/roi_kpi_card4.xlsx
+labs/day6/roi_cards/roi_kpi_card5.xlsx
+rehearsal/ok.txt
+# <<< files 브랜치 전용 경로 끝
