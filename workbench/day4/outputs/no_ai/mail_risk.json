@@ -1,0 +1,153 @@
+{
+  "engine": "no-ai",
+  "model": "",
+  "count": {
+    "멈춤": 2,
+    "확인": 1,
+    "기록": 3
+  },
+  "mails": [
+    {
+      "file": "01_remittance_B050.eml",
+      "sha256": "b6def9b3f6a8fcf72f9a94094a8c1c372f598a3c3e984252f2db3baf84fcf3e9",
+      "buyer_id": "B050",
+      "buyer_name": "Korolin Instruments LLC",
+      "subject": "Remittance advice - USD 70,360.00 (5 invoices)",
+      "signals": [],
+      "total": 0,
+      "status": "기록",
+      "tier": "",
+      "injection": false,
+      "label": "신호 0점 — 평소대로 처리(권고)",
+      "callback": "+1-555-0100",
+      "action": "권고(사람 승인 전): 평소대로 처리하고 메모만 남김",
+      "notes": [],
+      "ai_note": "",
+      "model": ""
+    },
+    {
+      "file": "02_new_account_B087.eml",
+      "sha256": "ecad5dbe94e8c96350034f747f99724da07725cfdfe60e689a3116b315c62da5",
+      "buyer_id": "B087",
+      "buyer_name": "Yorura Outlets Corp.",
+      "subject": "RE: Overdue balance - new bank account, urgent",
+      "signals": [
+        {
+          "no": 5,
+          "name": "개인 메일 · 메신저",
+          "score": 2,
+          "by": "헤더",
+          "evidence": "yorura.ap.payments@freemail.example",
+          "detail": "Reply-To 도메인 freemail.example ≠ From 도메인 yorura-outlets.com.tw"
+        },
+        {
+          "no": 1,
+          "name": "계좌 변경 요청",
+          "score": 3,
+          "by": "코드",
+          "evidence": "As instructed in your notice of Sep 28 about your new bank account, we will remit the overdue USD 49,854.",
+          "detail": ""
+        }
+      ],
+      "total": 5,
+      "status": "멈춤",
+      "tier": "P1",
+      "injection": false,
+      "label": "신호 5점 — 사람 확인 필요(권고)",
+      "callback": "+886-2-5550-0100",
+      "action": "권고(사람 승인 전): 답장 · 송금 · 선적 · 서류 인도를 멈추고, 등록 번호 +886-2-5550-0100로 두 사람이 콜백 확인한 뒤 팀장 보고",
+      "notes": [],
+      "ai_note": "",
+      "model": ""
+    },
+    {
+      "file": "03_big_order_B030.eml",
+      "sha256": "73d6ad693da63aabb346adc72c8cc57f3b3e258e001f345aec85ed75493514eb",
+      "buyer_id": "B030",
+      "buyer_name": "Calaro Endüstriyel Ölçüm A.Ş.",
+      "subject": "New order request - USD 380,000, open account 120 days",
+      "signals": [
+        {
+          "no": 4,
+          "name": "유사 도메인",
+          "score": 3,
+          "by": "헤더",
+          "evidence": "From 도메인 ca1aro-endustriyel.com.tr ≠ 등록 도메인 calaro-endustriyel.com.tr",
+          "detail": "철자 1글자 차이"
+        },
+        {
+          "no": 7,
+          "name": "지나치게 큰 주문",
+          "score": 2,
+          "by": "코드",
+          "evidence": "We plan a new order of USD 380,000 on 120 days open account.",
+          "detail": "주문 380,000달러 = 월 매출 14,069달러의 27.0배"
+        }
+      ],
+      "total": 5,
+      "status": "멈춤",
+      "tier": "P1",
+      "injection": false,
+      "label": "신호 5점 — 사람 확인 필요(권고)",
+      "callback": "+90-212-555-0100",
+      "action": "권고(사람 승인 전): 답장 · 송금 · 선적 · 서류 인도를 멈추고, 등록 번호 +90-212-555-0100로 두 사람이 콜백 확인한 뒤 팀장 보고",
+      "notes": [],
+      "ai_note": "",
+      "model": ""
+    },
+    {
+      "file": "04_terms_B005.eml",
+      "sha256": "0bd160b31974e232919d945a657d8b34fae01dc411d6640718b3c7d16715299d",
+      "buyer_id": "B005",
+      "buyer_name": "Xanolin Distribution Co., Ltd.",
+      "subject": "Request to adjust payment terms",
+      "signals": [],
+      "total": 0,
+      "status": "기록",
+      "tier": "",
+      "injection": false,
+      "label": "신호 0점 — 평소대로 처리(권고)",
+      "callback": "+84-28-5550-0100",
+      "action": "권고(사람 승인 전): 평소대로 처리하고 메모만 남김",
+      "notes": [],
+      "ai_note": "",
+      "model": ""
+    },
+    {
+      "file": "05_surrender_bl_B119.eml",
+      "sha256": "ca30e5004df00c2c5734b5974c7f2617df70d13c0df2bcfebb0e8353f443a1d7",
+      "buyer_id": "B119",
+      "buyer_name": "Galost Automation Ltd.",
+      "subject": "Urgent - release surrender B/L",
+      "signals": [],
+      "total": 0,
+      "status": "기록",
+      "tier": "",
+      "injection": false,
+      "label": "신호 0점 — 평소대로 처리(권고)",
+      "callback": "+91-22-5550-0100",
+      "action": "권고(사람 승인 전): 평소대로 처리하고 메모만 남김",
+      "notes": [],
+      "ai_note": "",
+      "model": ""
+    },
+    {
+      "file": "06_consignee_change_B050.eml",
+      "sha256": "970127f567fd101aaffdaf58c3fd68627bcca9ba85f278faa08e4cdf11dcf5e7",
+      "buyer_id": "B050",
+      "buyer_name": "Korolin Instruments LLC",
+      "subject": "PO KI-2610-118 - consignee change, please confirm today",
+      "signals": [],
+      "total": 0,
+      "status": "확인",
+      "tier": "P3",
+      "injection": true,
+      "label": "신호 0점 — 사람 확인 필요(권고)",
+      "callback": "+1-555-0100",
+      "action": "권고(사람 승인 전): 서면 증빙을 받고 등록 번호 +1-555-0100로 확인한 뒤 담당자가 진행 여부를 정함",
+      "notes": [],
+      "ai_note": "",
+      "model": ""
+    }
+  ]
+}
