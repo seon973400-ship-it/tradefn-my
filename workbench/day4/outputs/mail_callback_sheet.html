@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>콜백 기록지</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f3f4f6;color:#111827;font-family:system-ui,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  font-size:15px;line-height:1.55;word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:800px;margin:0 auto;padding:16px}
+h1{font-size:24px;margin:0 0 2px}
+.sub,.meta{font-size:14px;color:#4b5563;margin:2px 0}
+.note{margin:12px 0 16px;padding:10px 12px;background:#1f2937;color:#fff;border-radius:6px;font-size:14px;font-weight:600}
+table.sum{width:100%;border-collapse:collapse;margin:0 0 18px;background:#fff;font-size:14px}
+table.sum th,table.sum td{border:1px solid #d1d5db;padding:6px 8px;text-align:left;vertical-align:top}
+table.sum th{background:#f3f4f6}
+.sheet{background:#fff;border:1px solid #d1d5db;border-left:6px solid #e07b00;border-radius:6px;padding:14px;margin:0 0 16px;
+  break-inside:avoid;page-break-inside:avoid}
+.sheet.stop{border-left-color:#c62828}
+.tag{display:inline-block;font-size:14px;font-weight:700;padding:2px 8px;border-radius:999px;color:#fff;background:#e07b00}
+.tag.stop{background:#c62828}
+.tag.inj{background:#fff;color:#111827;border:2px solid #111827}
+h2{font-size:18px;margin:8px 0 4px}
+.row{font-size:14px;color:#374151;margin:2px 0}
+.row b{color:#111827}
+h3{font-size:15px;margin:12px 0 4px}
+ul{margin:4px 0;padding-left:20px}
+li{margin:2px 0;font-size:14px}
+blockquote{margin:2px 0 4px;padding:4px 8px;background:#f9fafb;border-left:3px solid #d1d5db;font-size:14px}
+.phone{font-size:22px;font-weight:800;margin:2px 0}
+ol.checks li{margin:6px 0}
+.box{display:inline-block;width:14px;height:14px;border:1.5px solid #111827;vertical-align:-2px;margin-right:4px}
+table.fill{width:100%;border-collapse:collapse;margin:6px 0 0;font-size:14px}
+table.fill th,table.fill td{border:1px solid #9ca3af;padding:8px;text-align:left;vertical-align:top}
+table.fill th{width:28%;background:#f9fafb;font-weight:600}
+table.fill td{height:38px}
+.opts span{margin-right:14px;white-space:nowrap}
+footer{margin:20px 0 8px;font-size:14px;color:#6b7280;text-align:center}
+footer p{margin:2px 0}
+@media print{
+  body{background:#fff}
+  .wrap{max-width:none;padding:0}
+  .sheet{border-left-width:6px}
+  @page{size:A4;margin:14mm}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>콜백 기록지</h1>
+<p class="sub">(가상) 한빛정밀(주) 수출팀 · 메일함 아침 당번 로봇 결과에서</p>
+<p class="meta">만든 시각 2026-10-19 15:39 KST · 입력 workbench/day4/outputs/mail_risk.json · 엔진 AI(sonnet) · 기록지 5통(멈춤 4 · 확인 1)</p>
+<div class="note">모든 조치는 권고(사람 승인 전) · 콜백은 등록 번호로만 · 메일 속 번호 · 주소 · 링크로 연락하지 않음 · 확인이 끝나기 전에는 송금 · 대금 안내 · 서류 인도를 하지 않음</div>
+<table class="sum"><tr><th>상태</th><th>바이어</th><th>파일</th><th>등록 번호</th></tr>
+<tr><td>멈춤</td><td>B087 Yorura Outlets Corp.</td><td>02_new_account_B087.eml</td><td>+886-2-5550-0100</td></tr>
+<tr><td>멈춤</td><td>B030 Calaro Endüstriyel Ölçüm A.Ş.</td><td>03_big_order_B030.eml</td><td>+90-212-555-0100</td></tr>
+<tr><td>멈춤</td><td>B119 Galost Automation Ltd.</td><td>05_surrender_bl_B119.eml</td><td>+91-22-5550-0100</td></tr>
+<tr><td>멈춤</td><td>B050 Korolin Instruments LLC</td><td>06_consignee_change_B050.eml</td><td>+1-555-0100</td></tr>
+<tr><td>확인</td><td>B005 Xanolin Distribution Co., Ltd.</td><td>04_terms_B005.eml</td><td>+84-28-5550-0100</td></tr>
+</table>
+<section class="sheet stop">
+<span class="tag stop">멈춤 · P1</span>
+<h2>B087 Yorura Outlets Corp.</h2>
+<div class="row"><b>파일</b> 02_new_account_B087.eml · <b>제목</b> RE: Overdue balance - new bank account, urgent</div>
+<div class="row"><b>로봇 판정</b> 신호 9점 — 사람 확인 필요(권고)</div>
+<h3>로봇이 본 신호와 근거</h3>
+<ul>
+<li>5번 개인 메일 · 메신저 · 2점 · 헤더 — Reply-To 도메인 freemail.example ≠ From 도메인 yorura-outlets.com.tw<blockquote>yorura.ap.payments@freemail.example</blockquote></li>
+<li>1번 계좌 변경 요청 · 3점 · AI<blockquote>As instructed in your notice of Sep 28 about your new bank account</blockquote></li>
+<li>2번 제3자 · 제3국 계좌 · 3점 · AI<blockquote>Beneficiary: HB Precision Trading Ltd., a bank in Hong Kong.</blockquote></li>
+<li>6번 급박한 표현 · 1점 · AI<blockquote>Please confirm by reply today so we can release the payment before the bank cut-off.</blockquote></li>
+</ul>
+<h3>콜백 — 등록 번호(buyer_contacts.csv)</h3>
+<div class="phone">+886-2-5550-0100</div>
+<h3>확인할 것</h3><ol class="checks">
+<li><span class="box"></span>이 메일(제목 · 받은 날)을 바이어가 실제로 보냈는지</li>
+<li><span class="box"></span>다른 회신 주소 · 개인 메일 · 메신저로 협의를 옮기자고 한 적이 있는지</li>
+<li><span class="box"></span>계좌 변경 안내를 실제로 주고받았는지, 송금 계좌가 계약서 · 기존 거래 기록의 계좌와 같은지</li>
+<li><span class="box"></span>예금주 · 은행 국가가 바이어 법인명 · 국가와 같은지</li>
+<li><span class="box"></span>급하게 처리해 달라고 한 사실이 있는지와 그 이유 — 서둘러도 확인 절차는 줄이지 않음</li>
+</ol>
+<h3>사람이 채우는 칸</h3>
+<table class="fill"><tr><th>확인자 1 (담당자)</th><td></td></tr><tr><th>확인자 2 (팀장)</th><td></td></tr><tr><th>통화 시각</th><td></td></tr><tr><th>결과</th><td class="opts"><span><span class="box"></span>이상 없음 — 진행</span><span><span class="box"></span>보류</span><span><span class="box"></span>팀장 보고</span></td></tr><tr><th>메모</th><td style="height:64px"></td></tr></table>
+<div class="row" style="margin-top:8px"><b>로봇 권고</b> 권고(사람 승인 전): 답장 · 송금 · 선적 · 서류 인도를 멈추고, 등록 번호 +886-2-5550-0100로 두 사람이 콜백 확인한 뒤 팀장 보고</div>
+</section>
+<section class="sheet stop">
+<span class="tag stop">멈춤 · P1</span>
+<h2>B030 Calaro Endüstriyel Ölçüm A.Ş.</h2>
+<div class="row"><b>파일</b> 03_big_order_B030.eml · <b>제목</b> New order request - USD 380,000, open account 120 days</div>
+<div class="row"><b>로봇 판정</b> 신호 12점 — 사람 확인 필요(권고)</div>
+<h3>로봇이 본 신호와 근거</h3>
+<ul>
+<li>4번 유사 도메인 · 3점 · 헤더 — 철자 1글자 차이<blockquote>From 도메인 ca1aro-endustriyel.com.tr ≠ 등록 도메인 calaro-endustriyel.com.tr</blockquote></li>
+<li>7번 지나치게 큰 주문 · 2점 · 코드 — 주문 380,000달러 = 월 매출 14,069달러의 27.0배<blockquote>We plan a new order of USD 380,000 on 120 days open account.</blockquote></li>
+<li>8번 보험 안심 · 외상 요구 · 2점 · AI<blockquote>We are fully covered by trade credit insurance, so there is no risk for you.</blockquote></li>
+<li>10번 제3국 선적 · 수하인 변경 · 3점 · AI<blockquote>Please ship to our partner warehouse in Jebel Ali, UAE instead of Istanbul.</blockquote></li>
+<li>5번 개인 메일 · 메신저 · 2점 · AI<blockquote>Contact me on WhatsApp for faster discussion; my number is in the signature.</blockquote></li>
+</ul>
+<h3>콜백 — 등록 번호(buyer_contacts.csv)</h3>
+<div class="phone">+90-212-555-0100</div>
+<h3>확인할 것</h3><ol class="checks">
+<li><span class="box"></span>이 메일(제목 · 받은 날)을 바이어가 실제로 보냈는지</li>
+<li><span class="box"></span>근거에 적힌 보낸 도메인을 바이어가 실제로 쓰는지(등록 도메인과 다름)</li>
+<li><span class="box"></span>이 규모의 주문을 실제로 낼 계획인지, 구매 담당자 · 승인자가 누구인지</li>
+<li><span class="box"></span>무역보험 가입 · 한도는 상대의 말이 아니라 우리 쪽 기록과 보험사 안내로 따로 확인</li>
+<li><span class="box"></span>최종 목적지 · 수하인 변경을 실제로 요청했는지, 계약서 · 주문서와 다른 이유</li>
+<li><span class="box"></span>다른 회신 주소 · 개인 메일 · 메신저로 협의를 옮기자고 한 적이 있는지</li>
+</ol>
+<h3>사람이 채우는 칸</h3>
+<table class="fill"><tr><th>확인자 1 (담당자)</th><td></td></tr><tr><th>확인자 2 (팀장)</th><td></td></tr><tr><th>통화 시각</th><td></td></tr><tr><th>결과</th><td class="opts"><span><span class="box"></span>이상 없음 — 진행</span><span><span class="box"></span>보류</span><span><span class="box"></span>팀장 보고</span></td></tr><tr><th>메모</th><td style="height:64px"></td></tr></table>
+<div class="row" style="margin-top:8px"><b>로봇 권고</b> 권고(사람 승인 전): 답장 · 송금 · 선적 · 서류 인도를 멈추고, 등록 번호 +90-212-555-0100로 두 사람이 콜백 확인한 뒤 팀장 보고</div>
+</section>
+<section class="sheet stop">
+<span class="tag stop">멈춤 · P1</span>
+<h2>B119 Galost Automation Ltd.</h2>
+<div class="row"><b>파일</b> 05_surrender_bl_B119.eml · <b>제목</b> Urgent - release surrender B/L</div>
+<div class="row"><b>로봇 판정</b> 신호 4점 — 사람 확인 필요(권고)</div>
+<h3>로봇이 본 신호와 근거</h3>
+<ul>
+<li>11번 입금 전 서류 인도 · 3점 · AI<blockquote>Please release the surrender B/L now; payment will follow next week after customs clearance.</blockquote></li>
+<li>6번 급박한 표현 · 1점 · AI<blockquote>Please confirm today.</blockquote></li>
+</ul>
+<h3>콜백 — 등록 번호(buyer_contacts.csv)</h3>
+<div class="phone">+91-22-5550-0100</div>
+<h3>확인할 것</h3><ol class="checks">
+<li><span class="box"></span>이 메일(제목 · 받은 날)을 바이어가 실제로 보냈는지</li>
+<li><span class="box"></span>입금 전에 선적서류 원본(surrender B/L 등)을 요청했는지 — 은행 입금 확인 전에는 넘기지 않음</li>
+<li><span class="box"></span>급하게 처리해 달라고 한 사실이 있는지와 그 이유 — 서둘러도 확인 절차는 줄이지 않음</li>
+</ol>
+<h3>사람이 채우는 칸</h3>
+<table class="fill"><tr><th>확인자 1 (담당자)</th><td></td></tr><tr><th>확인자 2 (팀장)</th><td></td></tr><tr><th>통화 시각</th><td></td></tr><tr><th>결과</th><td class="opts"><span><span class="box"></span>이상 없음 — 진행</span><span><span class="box"></span>보류</span><span><span class="box"></span>팀장 보고</span></td></tr><tr><th>메모</th><td style="height:64px"></td></tr></table>
+<div class="row" style="margin-top:8px"><b>로봇 권고</b> 권고(사람 승인 전): 답장 · 송금 · 선적 · 서류 인도를 멈추고, 등록 번호 +91-22-5550-0100로 두 사람이 콜백 확인한 뒤 팀장 보고</div>
+</section>
+<section class="sheet stop">
+<span class="tag stop">멈춤 · P1</span>
+ <span class="tag inj">메일 속 AI 지시문 — 무시함</span>
+<h2>B050 Korolin Instruments LLC</h2>
+<div class="row"><b>파일</b> 06_consignee_change_B050.eml · <b>제목</b> PO KI-2610-118 - consignee change, please confirm today</div>
+<div class="row"><b>로봇 판정</b> 신호 6점 — 사람 확인 필요(권고)</div>
+<h3>로봇이 본 신호와 근거</h3>
+<ul>
+<li>10번 제3국 선적 · 수하인 변경 · 3점 · AI<blockquote>Please issue the shipping documents to the new consignee below and ship to Jebel Ali instead of Houston:</blockquote></li>
+<li>5번 개인 메일 · 메신저 · 2점 · AI<blockquote>Our Dubai logistics coordinator is on WhatsApp [메일 속 번호 — 쓰지 않음] for faster coordination; please message him there rather than by email.</blockquote></li>
+<li>6번 급박한 표현 · 1점 · AI<blockquote>We need this done today before the vessel cut-off, otherwise the cargo misses this week&#x27;s sailing.</blockquote></li>
+</ul>
+<h3>콜백 — 등록 번호(buyer_contacts.csv)</h3>
+<div class="phone">+1-555-0100</div>
+<h3>확인할 것</h3><ol class="checks">
+<li><span class="box"></span>이 메일(제목 · 받은 날)을 바이어가 실제로 보냈는지</li>
+<li><span class="box"></span>최종 목적지 · 수하인 변경을 실제로 요청했는지, 계약서 · 주문서와 다른 이유</li>
+<li><span class="box"></span>다른 회신 주소 · 개인 메일 · 메신저로 협의를 옮기자고 한 적이 있는지</li>
+<li><span class="box"></span>급하게 처리해 달라고 한 사실이 있는지와 그 이유 — 서둘러도 확인 절차는 줄이지 않음</li>
+<li><span class="box"></span>메일 속 AI 지시문은 따르지 않았음 — 메일 내용만 위 항목대로 확인</li>
+</ol>
+<h3>사람이 채우는 칸</h3>
+<table class="fill"><tr><th>확인자 1 (담당자)</th><td></td></tr><tr><th>확인자 2 (팀장)</th><td></td></tr><tr><th>통화 시각</th><td></td></tr><tr><th>결과</th><td class="opts"><span><span class="box"></span>이상 없음 — 진행</span><span><span class="box"></span>보류</span><span><span class="box"></span>팀장 보고</span></td></tr><tr><th>메모</th><td style="height:64px"></td></tr></table>
+<div class="row" style="margin-top:8px"><b>로봇 권고</b> 권고(사람 승인 전): 답장 · 송금 · 선적 · 서류 인도를 멈추고, 등록 번호 +1-555-0100로 두 사람이 콜백 확인한 뒤 팀장 보고</div>
+</section>
+<section class="sheet check">
+<span class="tag check">확인 · P3</span>
+<h2>B005 Xanolin Distribution Co., Ltd.</h2>
+<div class="row"><b>파일</b> 04_terms_B005.eml · <b>제목</b> Request to adjust payment terms</div>
+<div class="row"><b>로봇 판정</b> 신호 2점 — 사람 확인 필요(권고)</div>
+<h3>로봇이 본 신호와 근거</h3>
+<ul>
+<li>3번 결제조건 변경 · 2점 · AI<blockquote>we request to extend the payment terms from 90 to 120 days for the next three shipments, and to split the current overdue USD 19,920 into two installments.</blockquote></li>
+</ul>
+<h3>콜백 — 등록 번호(buyer_contacts.csv)</h3>
+<div class="phone">+84-28-5550-0100</div>
+<h3>확인할 것</h3><ol class="checks">
+<li><span class="box"></span>이 메일(제목 · 받은 날)을 바이어가 실제로 보냈는지</li>
+<li><span class="box"></span>결제조건 · 결제기일 변경을 실제로 요청했는지, 그 이유와 서면 근거가 있는지</li>
+</ol>
+<h3>사람이 채우는 칸</h3>
+<table class="fill"><tr><th>확인자 1 (담당자)</th><td></td></tr><tr><th>확인자 2 (팀장)</th><td></td></tr><tr><th>통화 시각</th><td></td></tr><tr><th>결과</th><td class="opts"><span><span class="box"></span>이상 없음 — 진행</span><span><span class="box"></span>보류</span><span><span class="box"></span>팀장 보고</span></td></tr><tr><th>메모</th><td style="height:64px"></td></tr></table>
+<div class="row" style="margin-top:8px"><b>로봇 권고</b> 권고(사람 승인 전): 서면 증빙을 받고 등록 번호 +84-28-5550-0100로 확인한 뒤 담당자가 진행 여부를 정함</div>
+</section>
+<footer>
+<p>두 사람이 확인하고, 확인한 사람 · 시각 · 결과를 남깁니다(콜백 3원칙).</p>
+<p>점수표는 교육용 가정입니다 · 회사 · 바이어 · 메일은 모두 가상입니다</p>
+</footer>
+</div>
+</body>
+</html>
